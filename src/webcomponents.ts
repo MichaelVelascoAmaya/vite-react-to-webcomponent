@@ -2,12 +2,10 @@ import React from "react";
 import * as ReactDOMClient from "react-dom/client";
 import reactToWebComponent from "react-to-webcomponent";
 
-import { Header } from "./Header";
+import ExampleComponent from './components/ExampleComponent/ExampleComponent'
 
 customElements.define(
-  "rwc-header",
+  "rwc-example",
   // @ts-ignore
-  reactToWebComponent(Header, React, ReactDOMClient, {
-    props: ["text"],
-  })
+  reactToWebComponent(ExampleComponent, React, ReactDOMClient, {})
 );
