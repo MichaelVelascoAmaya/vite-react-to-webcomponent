@@ -5,6 +5,7 @@ import { build, defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
 import typescript from "@rollup/plugin-typescript";
 import cssInjectedByJsPlugin from "vite-plugin-css-injected-by-js";
+import replace from 'rollup-plugin-replace';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
@@ -18,7 +19,11 @@ const reactComponentLibrary = {
 };
 
 const webcomponentsLibrary = {
-  plugins: [],
+  plugins: [
+    replace({
+      'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV ?? 'production')
+    })
+  ],
   entry: path.resolve(__dirname, "../src/webcomponents.ts"),
   fileName: (format) => `webcomponents.${format}.js`,
   name: "webcomponents",
