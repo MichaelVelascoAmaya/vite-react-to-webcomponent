@@ -16,7 +16,8 @@
     "isolatedModules": true,
     "noEmit": true,
     "jsx": "react-jsx",
-    "declaration": true
+    "declaration": true,
+    "types": ["node", "jest", "@testing-library/jest-dom"]
   },
   "include": ["src"],
   "exclude": ["src/**/*.stories.ts"],
